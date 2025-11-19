@@ -24,4 +24,10 @@ func main() {
 	currentBalance = wf.GetBalance()
 
 	fmt.Printf("WF balance: %d\n", currentBalance)
+
+	bc := NewBitCoinWallet()
+
+	fmt.Println("New Bitcoin account created..")
+
+	bc.Deposit(10000)
 }
