@@ -1,13 +1,14 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"io/fs"
 	"os"
 	"path/filepath"
 )
 
-const ROOT_PATH string = "C:\\Users\\jdc\\Documents\\data\\gc_opendata\\batch"
+// const ROOT_PATH string = "C:\\Users\\jdc\\Documents\\data\\gc_opendata\\batch" // Yeah, this is a local path, will need to change it.
 
 func findFilesUsingGlob(rootDir string, pattern string) ([]string, error) {
 	fsys := os.DirFS(rootDir)
@@ -29,13 +30,23 @@ func findFilesUsingGlob(rootDir string, pattern string) ([]string, error) {
 }
 
 func main() {
-	files, err := findFilesUsingGlob(ROOT_PATH, "*/*.csv")
+	inputPathPtr := flag.String("input", "", "Paath to the input file")
+
+	flag.Parse()
+
+	if *inputPathPtr == "" {
+		fmt.Println("'--input' flag is required")
+	} else {
+		fmt.Printf("The input path provided is: %s", *inputPathPtr)
+	}
+
+	files, err := findFilesUsingGlob(*inputPathPtr, "*/*.csv")
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
 	for _, file := range files[:10] {
-		fullPath := filepath.Join(ROOT_PATH, file)
+		fullPath := filepath.Join(*inputPathPtr, file)
 		fmt.Println(fullPath)
 
 		readGCCsv(fullPath)
