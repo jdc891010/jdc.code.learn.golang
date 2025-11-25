@@ -43,3 +43,7 @@ dist/
 # Local environment files
 .env
 .env.local
+
+# Repo specific files (remember forward slash for paths)
+tutorials-code-with-ryan/advanced-golang-generics-explained
+tutorials-code-with-ryan/advanced-golang-generics-explained/*
