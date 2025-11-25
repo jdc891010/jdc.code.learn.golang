@@ -49,4 +49,7 @@ printGreeting(spanishBot{})
 - So, no longer are we stuck with every function has to be re-written to accomodate different type even if the logic in it is identical?
 
 **Example: io.Reader interface**
-Background:
+The idea is that there could be multiple different sources, like HTTP response body, text file on hd, image on hd, data for other sensors,  
+and the `Reader` interface in the middle will be used to to convert it into a `[]byte`, thereby using a single method of doing src-read-out.
+
+see `udemy-the_complete_developers_guide\assignments\reader\main.go`
