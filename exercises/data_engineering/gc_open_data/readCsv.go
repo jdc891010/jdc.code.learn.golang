@@ -105,9 +105,9 @@ func readGCCsv(fullfilepath string) {
 	p.Add(plotter.NewGrid())
 
 	// 6. Save the plot to a file
-	if err := p.Save(8*vg.Inch, 4*vg.Inch, "altitude_plot.png"); err != nil {
+	if err := p.Save(8*vg.Inch, 4*vg.Inch, fileBase+".png"); err != nil {
 		log.Fatal(err)
 	}
 
-	log.Println("Plot successfully saved to altitude_plot.png")
+	log.Printf("Plot successfully saved to %s_plot.png", fileBase)
 }

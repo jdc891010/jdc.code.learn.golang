@@ -22,6 +22,7 @@ func findFilesUsingGlob(rootDir string, pattern string) ([]string, error) {
 
 	if len(matches) == 0 {
 		fmt.Println("No matches found, list is empty")
+		os.Exit(1)
 	} else {
 		fmt.Println(matches)
 	}
@@ -40,12 +41,12 @@ func main() {
 		fmt.Printf("The input path provided is: %s", *inputPathPtr)
 	}
 
-	files, err := findFilesUsingGlob(*inputPathPtr, "*/*.csv")
+	files, err := findFilesUsingGlob(*inputPathPtr, "*.csv")
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
-	for _, file := range files[:10] {
+	for _, file := range files {
 		fullPath := filepath.Join(*inputPathPtr, file)
 		fmt.Println(fullPath)
 
