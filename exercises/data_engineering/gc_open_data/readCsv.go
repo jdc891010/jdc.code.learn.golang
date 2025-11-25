@@ -58,7 +58,7 @@ func readGCCsv(fullfilepath string) {
 
 	df = df.Mutate(series.New(timeIndexString, series.String, "time_index"))
 
-	df = df.Drop("secs")
+	// df = df.Drop("secs") /
 
 	fmt.Println(df)
 
