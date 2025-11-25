@@ -31,7 +31,7 @@ func findFilesUsingGlob(rootDir string, pattern string) ([]string, error) {
 }
 
 func main() {
-	inputPathPtr := flag.String("input", "", "Paath to the input file")
+	inputPathPtr := flag.String("input", "", "Path to the input file")
 
 	flag.Parse()
 
