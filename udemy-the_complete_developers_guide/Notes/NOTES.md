@@ -1,7 +1,7 @@
 
 
 
-## Interfaces
+## Section 6: Interfaces
 
 **Defining one type of bot**
 ```golang
@@ -53,3 +53,5 @@ The idea is that there could be multiple different sources, like HTTP response b
 and the `Reader` interface in the middle will be used to to convert it into a `[]byte`, thereby using a single method of doing src-read-out.
 
 see `udemy-the_complete_developers_guide\assignments\reader\main.go`
+
+## Section 7: Channels and Go Routines
